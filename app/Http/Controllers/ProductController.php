@@ -14,7 +14,7 @@ class ProductController extends Controller
     public function index()
     {
         $data = [
-            'page_title' => 'Daftar Produk',
+            'page_title' => 'Produk',
         ];
 
         return view('products/index', $data);
@@ -37,14 +37,16 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $data = [
-            'name' => $request->name,
-            'price' => $request->price,
-            'qty' => $request->qty,
-            'status' => $request->status,
-        ];
-        
-        DB::table('products')->insert($data);
+        $this->validate($request,[
+            'name' => 'required|min:5|max:20',
+            'description' => 'required',
+            'category' => 'required',
+            'price' => 'required|max:20',
+            'qty' => 'required',
+            'is_publish' => 'required|numeric'
+        ]);
+     
+        return view('proses',['data' => $request]);
     }
 
     /**
