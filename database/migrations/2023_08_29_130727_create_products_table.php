@@ -18,6 +18,7 @@ return new class extends Migration
             $table->text('category');
             $table->double('price');
             $table->integer('qty');
+            $table->integer('is_publish');
             $table->string('image')->nullable();
             $table->timestamps();
         });
