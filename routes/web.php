@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,7 @@ Route::get('/product', [ProductController::class, 'index']);
 Route::get('/product/create', [ProductController::class, 'create']);
 Route::post('/product', [ProductController::class, 'store']);
 
+Route::get('/category', [CategoryController::class, 'index']);
 
 // Route::resource('posts', 'PostController');
 Route::resource('/posts', \App\Http\Controllers\PostController::class);
