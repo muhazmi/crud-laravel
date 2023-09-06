@@ -46,7 +46,7 @@ class ProductController extends Controller
             'is_publish' => 'required|numeric'
         ]);
      
-        return view('proses',['data' => $request]);
+        return view('products/index',['data' => $request]);
     }
 
     /**

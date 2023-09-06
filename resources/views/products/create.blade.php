@@ -10,11 +10,11 @@
   @endif
 
   @if ($errors->any())
-    <ul>
       @foreach ($errors->all() as $error)
-        <li>{{ $error }}</li>
+        <div class="alert alert-danger" role="alert">
+          {{ $error }}
+        </div>
       @endforeach
-    </ul>
   @endif
 
   <form action="{{ route('product.store') }}" method="post">
